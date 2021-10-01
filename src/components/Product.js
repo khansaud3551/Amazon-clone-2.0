@@ -37,7 +37,7 @@ function Product({ title, price, description, category, image }) {
           <h1 className="text-gray-500 text-xs">Free Next-Day Delivery</h1>
         </div>
       )}
-      <button className="mt-auto button">Add to Basket</button>
+      <button className="mt-auto button">Add to Bajkhjkhsket</button>
     </div>
   );
 }
