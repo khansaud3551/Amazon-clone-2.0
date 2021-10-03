@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { useSession, signIn, signOut } from "next-auth/client";
 import {
   LocationMarkerIcon,
   MenuIcon,
@@ -8,6 +9,8 @@ import {
 } from "@heroicons/react/outline";
 
 function Header() {
+  const [session] = useSession("");
+
   return (
     <header>
       <div className="flex px-0 py-2 items-center flex-grow bg-amazon_blue">
@@ -37,8 +40,10 @@ function Header() {
         </div>
         {/* {righ hand side} */}
         <div className="text-white flex space-x-6 items-center text-xs mx-6 whitespace-nowrap">
-          <div className="link">
-            <p>Hello Shah Saud</p>
+          <div onClick={!session ? signIn : signOut} className="link">
+            <p className="font-semibold">
+              {session ? `Hello, ${session.user.name}` : "Sign in"}
+            </p>
             <p className="font-bold md:text-sm">Accounts & Lists</p>
           </div>
           <div className="link">
@@ -64,7 +69,7 @@ function Header() {
         <p className="flex link">Customer Service</p>
         <p className="flex link">Registry</p>
         <p className="link hidden md:inline">Gift Cards</p>
-        <p className="flex link">Sell</p>
+        <p className="flex link">Sells</p>
       </div>
     </header>
   );
