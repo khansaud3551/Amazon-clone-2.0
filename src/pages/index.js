@@ -13,6 +13,7 @@ export default function Home({ products }) {
       <main className="max-w-screen-2xl mx-auto">
         <Banner />
         <ProductFeed products={products} />
+        <h1>saud neww deploy</h1>
       </main>
     </div>
   );
